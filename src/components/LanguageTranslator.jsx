@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 
 const Container = styled.div`
+  margin: 20px;
   display: flex;
   flex-direction: column;
   align- items: center;
@@ -16,9 +17,50 @@ const Title = styled.h2`
   text-align: center;
 `
 
-
 const Label = styled.label`
-  color: orange;
+  font-size: 0.8rem;
+  gap: 1px;
+`
+
+
+const Select = styled.select`
+  margin: 10px 0;
+  padding: 5px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: 40%;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s;
+`
+
+const Input = styled.input`
+  margin: 10px 0;
+  padding: 5px 5px 20px 5px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: 100%;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s;
+
+  &:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+`
+
+const Button = styled.button`
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #0056b3;
+  }
 `
 
 const TranslatedText = styled.p`
@@ -55,11 +97,11 @@ const LanguageTranslator = () =>{
     <>
     
       <Container>
-        <Title> Language Translator </Title>
+        <Title style={{marginBottom: '10px'}}> Language Translator </Title>
           <div>
-            <label>Source Language
-            </label>
-            <select value={sourceLang} onChange={(event)=> setSourceLang(event.target.value)}>
+            <Label>Idioma do texto:
+            </Label>
+            <Select value={sourceLang} onChange={(event)=> setSourceLang(event.target.value)}>
               <option value="en">English</option>
               <option value="es">Spanis</option>
               <option value="fr">French</option>
@@ -67,12 +109,12 @@ const LanguageTranslator = () =>{
               <option value="it">Italian</option>
               <option value="pt">Portuguese</option>
 
-            </select>
+            </Select>
           </div>
           <div>
-            <label>Target Language
-            </label>
-            <select value={targetLang} onChange={(event)=>{
+            <Label>Traduzir para:
+            </Label>
+            <Select value={targetLang} onChange={(event)=>{
               setTargetLang(event.target.value)
             }}>
               <option value="en">English</option>
@@ -82,13 +124,13 @@ const LanguageTranslator = () =>{
               <option value="it">Italian</option>
               <option value="pt">Portuguese</option>
 
-            </select>
+            </Select>
           </div>
 
-          <input type="text" value={text} onChange={(event)=>{setText(event.target.value)}} placeholder='Inseria o texto que deseja traduzir'/>
+          <Input type="text" value={text} onChange={(event)=>{setText(event.target.value)}} placeholder='Insira o texto que deseja traduzir'/>
 
-          <button onClick={translateText}>Translate</button>
-          {translatedText && <TranslatedText>{translatedText}</TranslatedText>}
+          <Button onClick={translateText}>Translate</Button>
+          {translatedText && <TranslatedText style={{marginTop: '10px', textAlign: 'center', border: 'solid, pink', padding: '10px', textDecoration: 'underline'}}>{translatedText}</TranslatedText>}
       </Container>
     </>
   )

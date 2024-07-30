@@ -7,7 +7,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 40px;
-  background: red;
+  background: pink;
   border-radius: 15px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   max-width: 800px;
@@ -38,7 +38,7 @@ const Input = styled.input`
 
 const Button = styled.button`
   padding: 12px 20px;
-  background-color: green;
+  background-color: #007bff;
   color: white;
   border: none;
   border-radius: 5px;
@@ -78,7 +78,7 @@ function IPAddressFinder(){
     <Container>
       <Title></Title>
       <Input type="text" value={ip} onChange={(e)=> setIP(e.target.value)} placeholder="Insira o IP"/>
-      <button onClick={findIP}>Buscar IP</button>
+      <Button onClick={findIP}>Buscar IP</Button>
       {ipData && (
         <ResultFindIP>
           <p>IP: {ipData.ip}</p>

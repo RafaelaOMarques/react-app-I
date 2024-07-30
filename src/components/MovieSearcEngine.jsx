@@ -6,17 +6,17 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px;
+  padding: 5px 40px;
   background: #fff;
   border-radius: 15px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   max-width: 800px;
-  margin: 50px auto;
+  margin: 20px auto;
 `
 
 const Title = styled.h2`
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 24px;
   text-align: center;
 `
@@ -115,7 +115,7 @@ function MovieSearcEngine(){
     <Container>
       <Title>Movie Search Engine</Title>
       <Input type="text" value={query} placeholder="Informe o filme que você deseja assistir: " onChange={(event)=>setQuery(event.target.value)}/>
-      <button onClick={searchMovies}>Search</button>
+      <Button onClick={searchMovies}>Search</Button>
       <MoviesContainer>
         {movies && movies.map((movie) => (
           <MovieCard key={movie.imbID}>
